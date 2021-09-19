@@ -1,0 +1,56 @@
+﻿@model IEnumerable<MenuClass.Menu>
+
+<div class="ms-panel">
+    <div class="ms-panel-header">
+        <h6>@localizer.GetLocalizedHtmlString("List Menus")</h6>
+    </div>
+    <div class="ms-panel-body">
+        <div class="table-responsive">
+            <table id="list-menus" class="table w-100 thead-primary">
+                <thead>
+                    <tr>
+                        <th>@localizer.GetLocalizedHtmlString("No")</th>
+                        <th>@localizer.GetLocalizedHtmlString("ID")</th>
+                        <th>@localizer.GetLocalizedHtmlString("Description")</th>
+                        <th>@localizer.GetLocalizedHtmlString("Khmer Description")</th>
+                        <th>@localizer.GetLocalizedHtmlString("Icon")</th>
+                        <th class="text-center">@localizer.GetLocalizedHtmlString("Edit / Delete / See")</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{ var index = 1;}
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@index</td>
+                            <td>@item.Id</td>
+                            <td>@item.Description</td>
+                            <td>@item.KhmerDescription</td>
+                            <td>@item.Icon</td>
+                            <td class="text-center">
+                                <div class="action-modify">
+                                    <a title="@localizer.GetLocalizedHtmlString("Edit")" asp-action="edit" asp-route-key="@item.Encryted"><i class="fas fa-pencil-alt text-secondary"></i></a>
+                                </div>
+                                <div class="action-modify">
+                                    <a title="@localizer.GetLocalizedHtmlString("Delete")" asp-action="delete" asp-route-key="@item.Encryted"><i class="fa fa-trash"></i></a>
+                                </div>
+                                <div class="action-modify">
+                                    <a title="@localizer.GetLocalizedHtmlString("See")" asp-action="see" asp-route-key="@item.Encryted"><i class="fa fa-eye"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                        index++;
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#list-menus').DataTable({
+            pageLength: 10
+        });
+    });
+
+</script>

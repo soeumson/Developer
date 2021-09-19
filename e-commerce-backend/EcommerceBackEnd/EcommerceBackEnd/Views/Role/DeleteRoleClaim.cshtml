@@ -1,0 +1,41 @@
+﻿@model RoleClaimViewModel
+@if (!string.IsNullOrEmpty(ViewBag.Error))
+{
+    <div class="alert alert-danger" role="alert">
+        <strong>Oh worrying!</strong> @localizer.GetLocalizedHtmlString(ViewBag.Error)
+    </div>
+}
+<div class="ms-panel">
+    <div class="ms-panel-header">
+        <h6>@localizer.GetLocalizedHtmlString("Are you sure you want to delete this ?")</h6>
+    </div>
+    <div class="ms-panel-body">
+        <form class="needs-validation" novalidate asp-action="deleteroleclaim" method="post">
+            <input type="hidden" asp-for="RoleId" />
+            <input type="hidden" asp-for="Id" />
+            <div class="col-xl-12 col-md-12">
+                <div class="row col-modify">
+                    <div class="col-sm-3">
+                        @localizer.GetLocalizedHtmlString("Menu")
+                    </div>
+                    <div class="col-sm-9">
+                        @Html.DisplayFor(model => model.ClaimType)
+                    </div>
+                    <div class="col-sm-3">
+                        @localizer.GetLocalizedHtmlString("Access Right")
+                    </div>
+                    <div class="col-sm-9">
+                        @Html.DisplayFor(model => model.ClaimValue)
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-right">
+                    <button class="btn btn-primary" type="submit">@localizer.GetLocalizedHtmlString("Delete")</button>
+                    <a asp-action="providroleaccessright" asp-controller="role" asp-route-key="@Model.RoleId.Protection()" class="btn btn-primary">@localizer.GetLocalizedHtmlString("Back to List")</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+

@@ -1,0 +1,113 @@
+﻿
+@model AccountViewModel
+<div class="ms-panel">
+    <div class="ms-panel-header">
+        <h6>@localizer.GetLocalizedHtmlString("View Account")</h6>
+    </div>
+    <div class="ms-panel-body">
+        <div class="col-xl-12 col-md-12">
+            <div class="row col-modify">
+                <div class="col-md-12">
+                    @if (Model.Image != null)
+                    {
+                        <img class="d-block" style="height:220px; width:250px;" src="~/images/@Model.Image" alt="First slide"><br />
+                    }
+                    else
+                    {
+                        <img class="d-block" style="height:220px; width:250px;" src="~/images/default-avatar.webp" alt="First slide"><br />
+                    }
+                </div>
+                <div class="col-sm-3">
+                    @localizer.GetLocalizedHtmlString("Account ID")
+                </div>
+                <div class="col-sm-9">
+                    @Html.DisplayFor(model => model.Id)
+                </div>
+                <div class="col-sm-3">
+                    @localizer.GetLocalizedHtmlString("First Name")
+                </div>
+                <div class="col-sm-9">
+                    @Html.DisplayFor(model => model.FirstName)
+                </div>
+                <div class="col-sm-3">
+                    @localizer.GetLocalizedHtmlString("Last Name")
+                </div>
+                <div class="col-sm-9">
+                    @Html.DisplayFor(model => model.LastName)
+                </div>
+                <div class="col-sm-3">
+                    @localizer.GetLocalizedHtmlString("Full Name")
+                </div>
+                <div class="col-sm-9">
+                    @Html.DisplayFor(model => model.FullName)
+                </div>
+                <div class="col-sm-3">
+                    @localizer.GetLocalizedHtmlString("Start Data Profile")
+                </div>
+                <div class="col-sm-9">
+                    @Model.StartDateProfile.ToString("dd-MMM-yyyy")
+                </div>
+                <div class="col-sm-3">
+                    @localizer.GetLocalizedHtmlString("Phone Number")
+                </div>
+                <div class="col-sm-9">
+                    @Html.DisplayFor(model => model.PhoneNumber)
+                </div>
+                <div class="col-sm-3">
+                    @localizer.GetLocalizedHtmlString("Email Address")
+                </div>
+                <div class="col-sm-9">
+                    @Html.DisplayFor(model => model.Email)
+                </div>
+                <div class="col-sm-3">
+                    @localizer.GetLocalizedHtmlString("Status")
+                </div>
+                <div class="col-sm-9">
+                    @if (Model.Status)
+                    {
+                        <td><span class="badge badge-success">@localizer.GetLocalizedHtmlString("Available")</span> </td>
+                    }
+                    else
+                    {
+                        <td><span class="badge badge-primary">@localizer.GetLocalizedHtmlString("Unavailable")</span> </td>
+                    }
+                </div>
+                <div class="col-sm-3">
+                    @localizer.GetLocalizedHtmlString("Shop")
+                </div>
+                <div class="col-sm-9">
+                    @Html.DisplayFor(model => model.CompanyID)
+                </div>
+                <div class="col-sm-3">
+                    @localizer.GetLocalizedHtmlString("Create By")
+                </div>
+                <div class="col-sm-9">
+                    @Html.DisplayFor(model => model.CreateBy)
+                </div>
+                <div class="col-sm-3">
+                    @localizer.GetLocalizedHtmlString("Create Date")
+                </div>
+                <div class="col-sm-9">
+                    @Html.DisplayFor(model => model.CreateDate)
+                </div>
+                <div class="col-sm-3">
+                    @localizer.GetLocalizedHtmlString("Update By")
+                </div>
+                <div class="col-sm-9">
+                    @Html.DisplayFor(model => model.UpdateBy)
+                </div>
+                <div class="col-sm-3">
+                    @localizer.GetLocalizedHtmlString("Update Date")
+                </div>
+                <div class="col-sm-9">
+                    @Html.DisplayFor(model => model.UpdateDate)
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-right">
+                <a class="btn btn-primary" asp-action="index">@localizer.GetLocalizedHtmlString("Back to List")</a>
+            </div>
+        </div>
+    </div>
+</div>

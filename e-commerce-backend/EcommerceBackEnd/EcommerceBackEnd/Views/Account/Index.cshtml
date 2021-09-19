@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Account>
+
+<div class="ms-panel">
+    <div class="ms-panel-header">
+        <h6>@localizer.GetLocalizedHtmlString("List Of Accounts")</h6>
+    </div>
+    <div class="ms-panel-body">
+        <div class="table-responsive">
+            <table id="list-accounts" class="table w-100 thead-primary">
+                <thead>
+                    <tr>
+                        <th>@localizer.GetLocalizedHtmlString("No")</th>
+                        <th>@localizer.GetLocalizedHtmlString("Account Name")</th>
+                        <th>@localizer.GetLocalizedHtmlString("Start Date Profile")</th>
+                        <th>@localizer.GetLocalizedHtmlString("Status")</th>
+                        <th class="text-center">@localizer.GetLocalizedHtmlString("Eidt  / See")</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{var index = 1; }
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@index</td>
+                             <td>
+                                @if (item.Image == null)
+                                {
+                                    <img src="~/images/default.jpg" style="width:50px;height:30px;" />
+                                }
+                                else
+                                {
+                                    <img src="~/images/@item.Image" style="width:50px;height:30px;" />
+                                }
+
+                                @item.FullName
+                            </td>
+                            <td>@item.StartDateProfile.ToString("dd-MM-yyyy")</td>
+                           @if (item.Status)
+                            {
+                                <td><span class="badge badge-success">@localizer.GetLocalizedHtmlString("Available")</span> </td>
+                            }
+                            else
+                            {
+                                <td><span class="badge badge-primary">@localizer.GetLocalizedHtmlString("Unavailable")</span> </td>
+                            }
+                            <td class="text-center">
+                                <div class="action-modify">
+                                    <a title="@localizer.GetLocalizedHtmlString("Edit")" asp-action="edit" asp-route-key="@item.Encryted"><i class="fas fa-pencil-alt text-secondary"></i></a>
+                                </div>
+                                <div class="action-modify">
+                                    <a title="@localizer.GetLocalizedHtmlString("See")" asp-action="see" asp-route-key="@item.Encryted"><i class="fa fa-eye"></i></a>
+                                </div>
+                                 
+                                <div class="action-modify">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fa fa-ellipsis-h"></i>
+                                    </a>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" asp-action="resetpasswordadmin" asp-route-key="@item.Encryted"> @localizer.GetLocalizedHtmlString("Reset Password")</a>
+                                        <a class="dropdown-item" asp-action="providinguser" asp-route-key="@item.Encryted"> @localizer.GetLocalizedHtmlString("Providing User")</a>
+                                        <a class="dropdown-item" asp-action="providuseraccessright" asp-route-key="@item.Encryted"> @localizer.GetLocalizedHtmlString("User Access Right")</a>
+
+                                    </div>
+                                </div>
+                                 
+                            </td>
+                        </tr>
+                        index++;
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/account/account.js" defer></script>

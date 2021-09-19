@@ -1,0 +1,53 @@
+﻿
+@model Role
+<div class="row">
+    <div class="col-md-12">
+        @if (!string.IsNullOrEmpty(ViewBag.Error))
+        {
+            <div class="alert alert-danger" role="alert">
+                <strong>Oh worrying!</strong> @localizer.GetLocalizedHtmlString(ViewBag.Error)
+            </div>
+        }
+        @if (!string.IsNullOrEmpty(ViewBag.Success))
+        {
+            <div class="alert alert-success" role="alert">
+                <strong>Well done!</strong> @localizer.GetLocalizedHtmlString("You successfully create role.")
+            </div>
+        }
+        <div class="ms-panel ms-panel-fh">
+            <div class="ms-panel-header">
+                <h6>@localizer.GetLocalizedHtmlString("Role Form")</h6>
+            </div>
+            <div class="ms-panel-body ms-panel-fh">
+                <form asp-action="edit" asp-controller="role" class="needs-validation" novalidate>
+                    <input type="hidden" asp-for="Id" />
+                    <div class="row">
+                        <div class="col-xl-12 col-md-12">
+                            <div>
+                                <p style="color:grey;">@localizer.GetLocalizedHtmlString("Please enter role information to continue")</p>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-12">
+                                    <label>@localizer.GetLocalizedHtmlString("Role Name")</label> <span class="required-star">*</span>
+                                    <div class="input-group">
+                                        <input type="text" asp-for="Name" class="form-control" autocomplete="off" placeholder="@localizer.GetLocalizedHtmlString("Role name")" required>
+                                        <div class="valid-feedback">
+                                            @localizer.GetLocalizedHtmlString("Looks good!")
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            @localizer.GetLocalizedHtmlString("Role name is required.")
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="btn btn-primary float-right" asp-action="index" asp-controller="role">@localizer.GetLocalizedHtmlString("Back to List")</a>
+                            <button class="btn btn-primary float-right" type="submit">@localizer.GetLocalizedHtmlString("Update")</button>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

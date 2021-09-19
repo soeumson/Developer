@@ -1,2 +1,0 @@
-# Developer
-Develop and search

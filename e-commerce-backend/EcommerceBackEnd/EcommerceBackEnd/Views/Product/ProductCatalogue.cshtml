@@ -1,0 +1,138 @@
+﻿<style>
+    .main-item{
+        cursor:pointer;
+    }
+</style>
+<div class="row">
+    <div class="ms-content-wrapper box">
+        <div class="row bind-item"></div>
+        <div class="col-xl-12 col-md-12">
+            <div class="load">
+                <button class="btn btn-primary more">Load More</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="detail-item-modal" tabindex="-1" role="dialog" aria-labelledby="reminder-modal">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title has-icon text-white">Product Detail</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <form>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div id="img"></div>
+                            <br />
+                            <table class="table ms-profile-information">
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">Product Code</th>
+                                        <td id="product-code"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Product Name</th>
+                                        <td id="product-name"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Category</th>
+                                        <td id="category"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Sub Category</th>
+                                        <td id="sub-category"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Model</th>
+                                        <td id="model"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Uom</th>
+                                        <td id="uom"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Qty</th>
+                                        <td id="qty"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Price</th>
+                                        <td id="price"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Discount Active</th>
+                                        <td id="discount-active">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Discount Type</th>
+                                        <td id="discount-type"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Discount Value</th>
+                                        <td id="discount-value"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Fee Included</th>
+                                        <td id="fee-included"></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Vat Included</th>
+                                        <td id="vat-included"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                       <div class="col-md-6">
+                           <table class="table ms-profile-information">
+                               <tbody>
+                                  
+                                   <tr>
+                                       <th scope="row">Status</th>
+                                       <td id="status">
+                                           
+                                       </td>
+                                   </tr>
+                                   <tr>
+                                       <th scope="row">Manage Stock</th>
+                                       <td id="manage-stock">
+                                          
+                                       </td>
+                                   </tr>
+                                   <tr>
+                                       <th scope="row">Create By</th>
+                                       <td id="create-by"></td>
+                                   </tr>
+                                   <tr>
+                                       <th scope="row">Create Date</th>
+                                       <td id="create-date"></td>
+                                   </tr>
+                                   <tr>
+                                       <th scope="row">Product Detail</th>
+                                       <td id="product-detail"></td>
+                                   </tr>
+                               </tbody>
+                           </table>                
+                           <div class="ms-quick-stats">
+                                <div class="ms-stats-grid">
+                                    <i class="fa fa-bullhorn"></i>
+                                    <p class="ms-text-dark" id="total-order"></p>
+                                    <span>@localizer.GetLocalizedHtmlString("Today Order")</span>
+                                </div>
+                                <div class="ms-stats-grid">
+                                    <i class="fa fa-heart"></i>
+                                    <p class="ms-text-dark" id="favourite"></p>
+                                    <span>@localizer.GetLocalizedHtmlString("Favourite")</span>
+                                </div>
+                           </div>
+                       </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="~/js/product/product_catalogue.js"></script>

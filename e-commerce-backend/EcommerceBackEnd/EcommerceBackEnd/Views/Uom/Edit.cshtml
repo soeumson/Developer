@@ -1,0 +1,38 @@
+﻿@model Uom
+@if (!string.IsNullOrEmpty(ViewBag.Error))
+{
+    <div class="alert alert-danger" role="alert">
+        <strong>Oh worrying!</strong> @localizer.GetLocalizedHtmlString(ViewBag.Error)
+    </div>
+}
+<div class="ms-panel">
+    <div class="ms-panel-header">
+        <h6>@localizer.GetLocalizedHtmlString("Update Unit Of Measure")</h6>
+    </div>
+    <div class="ms-panel-body">
+        <form class="needs-validation" novalidate asp-action="edit" method="post">
+            <input type="hidden" asp-for="UomID" />
+            <div class="col-xl-12 col-md-12">
+                <div class="form-row">
+                    <div class="col-md-12">
+                        <label>@localizer.GetLocalizedHtmlString("Uom Name")</label> <span class="required-star">*</span>
+                        <div class="input-group">
+                            <input type="text" asp-for="UomName" autocomplete="off" class="form-control" placeholder="@localizer.GetLocalizedHtmlString("Uom name")" required>
+                            <div class="valid-feedback">
+                                @localizer.GetLocalizedHtmlString("Looks good!")
+                            </div>
+                            <div class="invalid-feedback">
+                                @localizer.GetLocalizedHtmlString("Uom name is required.")
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 text-right">
+                        <button class="btn btn-primary" type="submit">@localizer.GetLocalizedHtmlString("Update")</button>
+                        <a class="btn btn-primary" asp-action="index">@localizer.GetLocalizedHtmlString("Back to List")</a>
+                    </div>
+                </div>
+            </div>
+           
+        </form>
+    </div>
+</div>

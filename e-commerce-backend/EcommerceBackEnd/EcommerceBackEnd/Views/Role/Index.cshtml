@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Role>
+<div class="ms-panel">
+    <div class="ms-panel-header">
+        <h6>@localizer.GetLocalizedHtmlString("List Of Roles")</h6>
+    </div>
+    <div class="ms-panel-body">
+        <div class="table-responsive">
+            <table id="list-role" class="table w-100 thead-primary">
+                <thead>
+                    <tr>
+                        <th style="width:50px">@localizer.GetLocalizedHtmlString("No")</th>
+                        <th>@localizer.GetLocalizedHtmlString("Name")</th>
+                        <th>@localizer.GetLocalizedHtmlString("Create By")</th>
+                        <th>@localizer.GetLocalizedHtmlString("Create Date")</th>
+                        <th class="text-center">@localizer.GetLocalizedHtmlString("Edit / Delete / See")</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{var index = 1; }
+                    @foreach (var item in Model)
+                    {
+                        <tr data-role="@item.Name" data-key="@item.Id">
+                            <td>@index</td>
+                            <td>
+                                @item.Name
+                            </td>
+                            <td>@item.CreateBy</td>
+                            <td>@item.CreateDate</td>
+                            <td class="text-center">
+                                <div class="action-modify">
+                                    <a title="@localizer.GetLocalizedHtmlString("Edit")" asp-action="edit" asp-route-key="@item.Encryted"><i class="fas fa-pencil-alt text-secondary"></i></a>
+                                </div>
+                                <div class="action-modify">
+                                    <a title="@localizer.GetLocalizedHtmlString("Delete")" asp-action="delete" asp-route-key="@item.Encryted"><i class="fa fa-trash"></i></a>
+                                </div>
+                                <div class="action-modify">
+                                    <a title="@localizer.GetLocalizedHtmlString("See")" asp-action="see" asp-route-key="@item.Encryted"><i class="fa fa-eye"></i></a>
+                                </div>
+                                <div class="action-modify">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fa fa-ellipsis-h"></i>
+                                    </a>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" asp-action="providroleaccessright" asp-route-key="@item.Encryted"> @localizer.GetLocalizedHtmlString("Role Access Right")</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        index++;
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#list-role').DataTable({
+            pageLength: 10
+        });
+    });
+</script>
+

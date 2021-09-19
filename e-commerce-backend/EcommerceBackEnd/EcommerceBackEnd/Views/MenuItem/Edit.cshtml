@@ -1,0 +1,67 @@
+﻿@model MenuClass.MenuItem
+@if (!string.IsNullOrEmpty(ViewBag.Error))
+{
+    <div class="alert alert-danger" role="alert">
+        <strong>Oh worrying!</strong> @localizer.GetLocalizedHtmlString(ViewBag.Error)
+    </div>
+}
+<div class="ms-panel">
+    <div class="ms-panel-header">
+        <h6>@localizer.GetLocalizedHtmlString("Update Menu Item")</h6>
+    </div>
+    <div class="ms-panel-body">
+        <form class="needs-validation" novalidate asp-action="edit" method="post">
+            <div class="col-xl-12 col-md-12">
+                <div class="form-row">
+                    <div class="col-md-12">
+                        <label>@localizer.GetLocalizedHtmlString("Menu Item ID")</label> <span class="required-star">*</span>
+                        <div class="input-group">
+                            <input type="text" asp-for="Id" readonly autocomplete="off" class="form-control" placeholder="@localizer.GetLocalizedHtmlString("ID")" required>
+                            <div class="valid-feedback">
+                                @localizer.GetLocalizedHtmlString("Looks good!")
+                            </div>
+                            <div class="invalid-feedback">
+                                @localizer.GetLocalizedHtmlString("Menu item id name is required.")
+                            </div>
+                        </div>
+                        <label>@localizer.GetLocalizedHtmlString("Description")</label> <span class="required-star">*</span>
+                        <div class="input-group">
+                            <input type="text" asp-for="Description" autocomplete="off" class="form-control" placeholder="@localizer.GetLocalizedHtmlString("Description")" required>
+                            <div class="valid-feedback">
+                                @localizer.GetLocalizedHtmlString("Looks good!")
+                            </div>
+                            <div class="invalid-feedback">
+                                @localizer.GetLocalizedHtmlString("Description is required.")
+                            </div>
+                        </div>
+                        <label>@localizer.GetLocalizedHtmlString("khmer Description")</label> <span class="required-star">*</span>
+                        <div class="input-group">
+                            <input type="text" asp-for="KhmerDescription" autocomplete="off" class="form-control" placeholder="@localizer.GetLocalizedHtmlString("Khmer Description")" required>
+                            <div class="valid-feedback">
+                                @localizer.GetLocalizedHtmlString("Looks good!")
+                            </div>
+                            <div class="invalid-feedback">
+                                @localizer.GetLocalizedHtmlString("Khmer description is required.")
+                            </div>
+                        </div>
+                        <label>@localizer.GetLocalizedHtmlString("Url")</label> <span class="required-star">*</span>
+                        <div class="input-group">
+                            <input type="text" asp-for="Url" autocomplete="off" class="form-control" placeholder="@localizer.GetLocalizedHtmlString("Url")" required>
+                            <div class="valid-feedback">
+                                @localizer.GetLocalizedHtmlString("Looks good!")
+                            </div>
+                            <div class="invalid-feedback">
+                                @localizer.GetLocalizedHtmlString("Url is required.")
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 text-right">
+                        <button class="btn btn-primary" type="submit">@localizer.GetLocalizedHtmlString("Update")</button>
+                        <a class="btn btn-primary" asp-action="index">@localizer.GetLocalizedHtmlString("Back to List")</a>
+                    </div>
+                </div>
+            </div>
+            
+        </form>
+    </div>
+</div>

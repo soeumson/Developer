@@ -1,0 +1,71 @@
+﻿@model ProvidUserViewModel
+@if (!string.IsNullOrEmpty(ViewBag.Error))
+{
+    <div class="alert alert-danger" role="alert">
+        <strong>Oh worrying!</strong> @localizer.GetLocalizedHtmlString(ViewBag.Error)
+    </div>
+}
+@if (!string.IsNullOrEmpty(ViewBag.Success))
+{
+    <div class="alert alert-success" role="alert">
+        <strong>Well done!</strong> @localizer.GetLocalizedHtmlString("You successfully providing user.")
+    </div>
+}
+<div class="ms-panel">
+    <div class="ms-panel-header">
+        <h6>@localizer.GetLocalizedHtmlString("Providing User")</h6>
+    </div>
+    <div class="ms-panel-body">
+        <form class="needs-validation" novalidate asp-action="providinguser" method="post">
+            <input type="hidden" asp-for="UserId" />
+            <div class="col-xl-12 col-md-12">
+                <div class="form-row">
+                    <div class="col-md-12">
+                        <label>@localizer.GetLocalizedHtmlString("User")</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" readonly asp-for="Username">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <label>@localizer.GetLocalizedHtmlString("Provid Menu User")</label> <span class="required-star">*</span>
+                        <div class="input-group">
+                            <select asp-for="MainMenuId" class="form-control select2" required asp-items="@ViewBag.MainMenu">
+                                <option value=""></option>
+                            </select>
+                            <div class="valid-feedback">
+                                @localizer.GetLocalizedHtmlString("Looks good!")
+                            </div>
+                            <div class="invalid-feedback">
+                                @localizer.GetLocalizedHtmlString("Menu is required.")
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <label>@localizer.GetLocalizedHtmlString("Provid Role")</label> <span class="required-star">*</span>
+                        <div class="input-group">
+                            <select asp-for="Roles" class="form-control select2" multiple required asp-items="@ViewBag.Role">
+                            </select>
+                            <div class="valid-feedback">
+                                @localizer.GetLocalizedHtmlString("Looks good!")
+                            </div>
+                            <div class="invalid-feedback">
+                                @localizer.GetLocalizedHtmlString("Roles user is required.")
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-right">
+                    <button class="btn btn-primary" type="submit">@localizer.GetLocalizedHtmlString("Save")</button>
+                    <a asp-action="index" class="btn btn-primary">@localizer.GetLocalizedHtmlString("Back to List")</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('.select2').select2();
+    });
+</script>

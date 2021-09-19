@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Product>
+
+<div class="ms-panel">
+    <div class="ms-panel-header">
+        <h6>@localizer.GetLocalizedHtmlString("List Of Products")</h6>
+    </div>
+    <div class="ms-panel-body">
+        <div class="table-responsive">
+            <table id="list-products" class="table w-100 thead-primary">
+                <thead>
+                    <tr>
+                        <th>@localizer.GetLocalizedHtmlString("No")</th>
+                        <th>@localizer.GetLocalizedHtmlString("Code")</th>
+                        <th>@localizer.GetLocalizedHtmlString("Name")</th>
+                        <th>@localizer.GetLocalizedHtmlString("Qty")</th>
+                        <th>@localizer.GetLocalizedHtmlString("Price")</th>
+                        <th>@localizer.GetLocalizedHtmlString("Uom")</th>
+                        <th class="text-center">@localizer.GetLocalizedHtmlString("Edit / Delete / See")</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{ var index = 1;}
+                    @foreach (var item in Model)
+                    {
+                        var image_name = "";
+                        if (!string.IsNullOrEmpty(item.Images))
+                        {
+                            image_name = item.Images.Split(',')[0];
+                        }
+                        <tr>
+                            <td style="width:30px;">@index</td>
+                            <td style="min-width:100px;">@item.ProductCode</td>
+                            <td style="min-width:180px;"><img src='~/product_images/@image_name' style='width:50px; height:30px;'> @item.ProductName</td>
+                            <td>@item.Qty</td>
+                            <td>@ViewBag.Currency@item.Price</td>
+                            <td>@item.UomName</td>
+                            <td class="text-center">
+                                <div class="action-modify">
+                                    <a title="@localizer.GetLocalizedHtmlString("Edit")" asp-action="edit" asp-route-key="@item.Encryted"><i class="fas fa-pencil-alt text-secondary"></i></a>
+                                </div>
+                                <div class="action-modify">
+                                    <a title="@localizer.GetLocalizedHtmlString("Delete")" asp-action="delete" asp-route-key="@item.Encryted"><i class="fa fa-trash"></i></a>
+                                </div>
+                                <div class="action-modify">
+                                    <a title="@localizer.GetLocalizedHtmlString("See")" asp-action="see" asp-route-key="@item.Encryted"><i class="fa fa-eye"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                        index++;
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="~/js/product/product.js"></script>

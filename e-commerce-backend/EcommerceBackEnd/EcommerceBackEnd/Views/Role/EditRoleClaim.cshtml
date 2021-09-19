@@ -1,0 +1,52 @@
+﻿@model RoleClaimViewModel
+@if (!string.IsNullOrEmpty(ViewBag.Error))
+{
+    <div class="alert alert-danger" role="alert">
+        <strong>Oh worrying!</strong> @localizer.GetLocalizedHtmlString(ViewBag.Error)
+    </div>
+}
+<div class="ms-panel">
+    <div class="ms-panel-header">
+        <h6>@localizer.GetLocalizedHtmlString("Edit Role Access Right")</h6>
+    </div>
+    <div class="ms-panel-body">
+        <form class="needs-validation" novalidate asp-action="editroleclaim" method="post">
+            <input type="hidden" asp-for="RoleId" />
+            <input type="hidden" asp-for="Id" />
+            <div class="col-xl-12 col-md-12">
+                <div class="form-row">
+                    <div class="col-md-12">
+                        <label>@localizer.GetLocalizedHtmlString("Menu")</label> <span class="required-star">*</span>
+                        <div class="input-group">
+                            <input type="text" readonly asp-for="ClaimType" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <label>@localizer.GetLocalizedHtmlString("Access Right")</label> <span class="required-star">*</span>
+                        <div class="input-group">
+                            <select asp-for="AccessRight" class="form-control select2" multiple required asp-items="@ViewBag.AccessRight">
+                            </select>
+                            <div class="valid-feedback">
+                                @localizer.GetLocalizedHtmlString("Looks good!")
+                            </div>
+                            <div class="invalid-feedback">
+                                @localizer.GetLocalizedHtmlString("Access right is required.")
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-right">
+                    <button class="btn btn-primary" type="submit">@localizer.GetLocalizedHtmlString("Save")</button>
+                    <a asp-action="providroleaccessright" asp-controller="role" asp-route-key="@Model.RoleId.Protection()" class="btn btn-primary">@localizer.GetLocalizedHtmlString("Back to List")</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('.select2').select2();
+    });
+</script>

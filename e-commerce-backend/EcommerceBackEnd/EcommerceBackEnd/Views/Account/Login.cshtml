@@ -1,0 +1,129 @@
+﻿@{
+    Layout = "_LayoutRegistor";
+    var returnUrl = @Context.Request.Query["returnurl"];
+}
+@model LoginViewModel
+
+<div class="ms-content-wrapper ms-auth">
+    <div class="ms-auth-container">
+        <div class="ms-auth-col">
+            <div class="ms-auth-bg"></div>
+        </div>
+        <div class="ms-auth-col">
+            <div class="ms-auth-form">
+
+                <form class="needs-validation" asp-route-returnurl="@returnUrl" novalidate="" method="post" asp-action="login" asp-controller="account">
+                    <div class="md-3">
+                        @if (!string.IsNullOrEmpty(ViewBag.Info))
+                        {
+                            <div class="alert alert-danger" role="alert">
+                                <strong>Oh worrying!</strong> @localizer.GetLocalizedHtmlString(ViewBag.Info) <span style="color:red;" id="count-lock"></span>
+                            </div>
+                        }
+                        @if (!string.IsNullOrEmpty(ViewBag.Lock))
+                        {
+                            <input type="text" hidden value="@ViewBag.Lock" id="lock-user" />
+                        }
+                    </div>
+                    <h3>@localizer.GetLocalizedHtmlString("Login to Account")</h3>
+                    <p>@localizer.GetLocalizedHtmlString("Please enter your email and password to continue")</p>
+                    <div class="mb-3">
+                        <label for="validationCustom08">@localizer.GetLocalizedHtmlString("Email address")</label>
+                        <div class="input-group">
+                            <input asp-for="EmailAddress" type="email" class="form-control" id="validationCustom08" placeholder="@localizer.GetLocalizedHtmlString("Email address")" required="">
+                            <div class="invalid-feedback">@localizer.GetLocalizedHtmlString("Please provide a valid email.")</div>
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <label for="validationCustom09">@localizer.GetLocalizedHtmlString("Password")</label>
+                        <div class="input-group">
+                            <input type="password" asp-for="Password" class="form-control" id="validationCustom09" placeholder="@localizer.GetLocalizedHtmlString("Password")" required="">
+                            <div class="invalid-feedback">@localizer.GetLocalizedHtmlString("Please provide a password.")</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="ms-checkbox-wrap">
+                            <input  asp-for="Remember" type="checkbox"> <i class="ms-checkbox-check"></i>
+                        </label> <span> @localizer.GetLocalizedHtmlString("Remember Password") </span>
+                        <label class="d-block mt-3">
+                            <a href="#" class="btn-link" data-toggle="modal" data-target="#modal-12">@localizer.GetLocalizedHtmlString("Forgot Password")?</a>
+                        </label>
+                    </div>
+                    <button class="btn btn-primary mt-4 d-block w-100" type="submit">@localizer.GetLocalizedHtmlString("Sign In")</button>
+                    <p class="mb-0 mt-3 text-center">
+                        @localizer.GetLocalizedHtmlString("Don't have an account")? <a asp-action="registeruser" asp-controller="account">@localizer.GetLocalizedHtmlString("Create Account")</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Forgot Password Modal -->
+<div class="modal fade" id="modal-12" tabindex="-1" role="dialog" aria-labelledby="modal-12">
+    <div class="modal-dialog modal-dialog-centered modal-min" role="document">
+        <div class="modal-content">
+            <div class="loading-show loading-hide">
+                <img src='~/Images/lgloader.png' style="object-fit: cover;width :60px; height:60px;">
+            </div>
+
+            <div class="modal-body text-center">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button> <i class="flaticon-secure-shield d-block"></i>
+                <h1>@localizer.GetLocalizedHtmlString("Forgot Password")?</h1>
+                <p>@localizer.GetLocalizedHtmlString("Enter your email to recover your password.")</p>
+                <br />
+                <div class="error-sendemail text-danger"></div>
+                <div class="ms-form-group has-icon">
+                    <input type="email" id="send-email" required placeholder="@localizer.GetLocalizedHtmlString("Email Address")" class="form-control"> <i class="material-icons">email</i>
+                </div>
+                <button type="button" id="btn-sendemail" class="btn btn-primary shadow-none">@localizer.GetLocalizedHtmlString("Reset Password")</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        var lock = document.getElementById("lock-user").value;
+        if (lock == "True") {
+            var start = Date.now();
+            var timer = setInterval(function () {
+                let count = 0;
+                var delta = Date.now() - start;
+                count += parseInt(Math.floor(delta / 1000));
+                $("#count-lock").text("1 minutes " + count);
+                if (count > 59) {
+                    clearInterval(timer);
+                    $("#count-lock").text("Try again");
+                }
+            }, 1000);
+        }
+    });
+
+    $("#btn-sendemail").click(function () {
+        var email = document.getElementById("send-email").value;
+        if (email == "") {
+            toastr.options.positionClass = "toast-top-right";
+            toastr.error('Please provide a valid email.');
+            return;
+        }
+        $(".loading-show").removeClass("loading-hide");
+        $.ajax({
+            url: "/Account/ForgetPassword",
+            type: "POST",
+            dataType: "Json",
+            data: { Email: email },
+            success: function (ex) {
+                $("#send-email").val("");
+                $(".loading-show").addClass("loading-hide");
+                if (ex.status == "F") {
+                    toastr.options.positionClass = "toast-top-right";
+                    toastr.error(ex.message);
+                } else {
+                    toastr.options.positionClass = "toast-top-right";
+                    toastr.success(ex.message);
+                }
+            }
+        });
+    });
+</script>

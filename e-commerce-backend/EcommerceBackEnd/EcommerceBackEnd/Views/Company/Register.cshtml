@@ -1,0 +1,127 @@
+﻿
+@{
+    Layout = "_LayoutRegistor";
+}
+@model CompanyProfile
+
+<div class="ms-panel ms-panel-fh">
+    <div class="ms-panel-header">
+        <h6>@localizer.GetLocalizedHtmlString("Register Shop Profile")</h6>
+    </div>
+    <div class="ms-panel-body ms-panel-fh">
+        <form asp-action="register" asp-controller="company" class="needs-validation" novalidate enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-xl-5 col-md-12">
+                    <div class="ms-auth-bg"></div>
+                </div>
+                <div class="col-xl-7 col-md-12">
+                    @if (!string.IsNullOrEmpty(ViewBag.Error))
+                    {
+                        <div class="alert alert-danger" role="alert">
+                            <strong>Oh worrying!</strong> @localizer.GetLocalizedHtmlString(ViewBag.Error)
+                        </div>
+                    }
+                    <div>
+                        <h3>@localizer.GetLocalizedHtmlString("Create Shop Profile")</h3>
+                        <p style="color:grey;">@localizer.GetLocalizedHtmlString("Please enter shop profile information to continue")</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-7 col-md-12">
+                            <div class="form-row">
+                                <div class="col-md-12">
+                                    <label>@localizer.GetLocalizedHtmlString("Shop name")</label> <span class="required-star">*</span>
+                                    <div class="input-group">
+                                        <input type="text" asp-for="CompanyName" class="form-control" autocomplete="off" placeholder="@localizer.GetLocalizedHtmlString("Shop name")" required>
+                                        <div class="valid-feedback">
+                                            @localizer.GetLocalizedHtmlString("Looks good!")
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            @localizer.GetLocalizedHtmlString("Shop name is required.")
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <label>@localizer.GetLocalizedHtmlString("Phone number")</label> <span class="required-star">*</span>
+                                    <div class="input-group">
+                                        <input type="number" asp-for="CompanyPhone" class="form-control" placeholder="@localizer.GetLocalizedHtmlString("Phone number")" autocomplete="off" required>
+                                        <div class="valid-feedback">
+                                            @localizer.GetLocalizedHtmlString("Looks good!")
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            @localizer.GetLocalizedHtmlString("Shop phone is required.")
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <label>@localizer.GetLocalizedHtmlString("Email address")</label> <span class="required-star">*</span>
+                                    <div class="input-group">
+                                        <input type="email" asp-for="CompanyEmail" class="form-control" placeholder="@localizer.GetLocalizedHtmlString("Email address")" autocomplete="off" required>
+                                        <div class="valid-feedback">
+                                            @localizer.GetLocalizedHtmlString("Looks good!")
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            @localizer.GetLocalizedHtmlString("Shop email is required.")
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <label>@localizer.GetLocalizedHtmlString("Address")</label> <span class="required-star">*</span>
+                                    <div class="input-group">
+                                        <input type="text" asp-for="CompanyAddress" class="form-control" placeholder="@localizer.GetLocalizedHtmlString("Address")" autocomplete="off" required>
+                                        <div class="valid-feedback">
+                                            @localizer.GetLocalizedHtmlString("Looks good!")
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            @localizer.GetLocalizedHtmlString("Shop address is required.")
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <label>@localizer.GetLocalizedHtmlString("Description")</label> 
+                                    <div class="input-group">
+                                        <textarea style="height:150px;" asp-for="CompanyDescription" class="form-control" placeholder="@localizer.GetLocalizedHtmlString("description")"></textarea>
+                                        <div class="valid-feedback">
+                                            @localizer.GetLocalizedHtmlString("Looks good!")
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-5 col-md-12">
+                            <div>
+                                <img src="~/images/default-logo.png" id="image-upload" />
+                                <input id="img" asp-for="Logo" hidden />
+                            </div>
+                            <div class="btn btn-sm btn-file" id="image-style">
+                                @localizer.GetLocalizedHtmlString("Browse Logo...")
+                                <input class="btn-sm" type="file" asp-for="Logo" name="Image" id="txtlogo" onchange="show(this)" value="" accept=".ico, .png, .jpg, .jpeg, .gif">
+                            </div>
+                            <div class="new" style="margin-top:25px;">
+                                <p class="medium">@localizer.GetLocalizedHtmlString("Status Available")</p>
+                                <div>
+                                    <label class="ms-switch">
+                                        <input type="checkbox" asp-for="Status" checked>
+                                        <span class="ms-switch-slider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <label>@localizer.GetLocalizedHtmlString("Currency")</label> <span class="required-star">*</span>
+                            <div class="input-group">
+                                <select asp-for="CurrencyID" class="form-control" asp-items="ViewBag.Currencys" required>
+                                    <option value="">@localizer.GetLocalizedHtmlString("Select-currency")</option>
+                                </select>
+                                <div class="valid-feedback">
+                                    @localizer.GetLocalizedHtmlString("Looks good!")
+                                </div>
+                                <div class="invalid-feedback">
+                                    @localizer.GetLocalizedHtmlString("Currency is required.")
+                                </div>
+                            </div>
+                            <button class="btn btn-primary float-right" type="submit">@localizer.GetLocalizedHtmlString("Create")</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

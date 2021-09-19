@@ -1,0 +1,77 @@
+﻿@model MenuClass.Menu
+<div class="ms-panel">
+    <div class="ms-panel-header">
+        <h6>@localizer.GetLocalizedHtmlString("View Menu")</h6>
+    </div>
+    <div class="ms-panel-body">
+        <div class="col-xl-12 col-md-12">
+            <div class="row col-modify">
+                <div class="col-sm-3">
+                    @localizer.GetLocalizedHtmlString("Menu ID")
+                </div>
+                <div class="col-sm-9">
+                    @Html.DisplayFor(model => model.Id)
+                </div>
+                <div class="col-sm-3">
+                    @localizer.GetLocalizedHtmlString("Description")
+                </div>
+                <div class="col-sm-9">
+                    @Html.DisplayFor(model => model.Description)
+                </div>
+                <div class="col-sm-3">
+                    @localizer.GetLocalizedHtmlString("Khmer Description")
+                </div>
+                <div class="col-sm-9">
+                    @Html.DisplayFor(model => model.KhmerDescription)
+                </div>
+                <div class="col-sm-3">
+                    @localizer.GetLocalizedHtmlString("Icon")
+                </div>
+                <div class="col-sm-9">
+                    @Html.DisplayFor(model => model.Icon)
+                </div>
+                <div class="col-sm-3">
+                    @localizer.GetLocalizedHtmlString("Menu Item")
+                </div>
+                <div class="col-sm-9">
+                    @Html.DisplayFor(model => model.ShowMenuItem)
+                </div>
+                <div class="col-sm-3">
+                    @localizer.GetLocalizedHtmlString("Shop")
+                </div>
+                <div class="col-sm-9">
+                    @Html.DisplayFor(model => model.CompanyId)
+                </div>
+                <div class="col-sm-3">
+                    @localizer.GetLocalizedHtmlString("Create By")
+                </div>
+                <div class="col-sm-9">
+                    @Html.DisplayFor(model => model.CreateBy)
+                </div>
+                <div class="col-sm-3">
+                    @localizer.GetLocalizedHtmlString("Create Date")
+                </div>
+                <div class="col-sm-9">
+                    @Html.DisplayFor(model => model.CreateDate)
+                </div>
+                <div class="col-sm-3">
+                    @localizer.GetLocalizedHtmlString("Update By")
+                </div>
+                <div class="col-sm-9">
+                    @Html.DisplayFor(model => model.UpdateBy)
+                </div>
+                <div class="col-sm-3">
+                    @localizer.GetLocalizedHtmlString("Update Date")
+                </div>
+                <div class="col-sm-9">
+                    @Html.DisplayFor(model => model.UpdateDate)
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-right">
+                <a class="btn btn-primary" asp-action="index">@localizer.GetLocalizedHtmlString("Back to List")</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,107 @@
+﻿
+@model ProvidRoleAccessRightViewModel
+<div class="row">
+    <div class="col-md-12 col-xl-12">
+        @if (!string.IsNullOrEmpty(ViewBag.Error))
+        {
+            <div class="alert alert-danger" role="alert">
+                <strong>Oh worrying!</strong> @localizer.GetLocalizedHtmlString(ViewBag.Error)
+            </div>
+        }
+        <div class="ms-panel">
+            <div class="ms-panel-header">
+                <h6>@localizer.GetLocalizedHtmlString("Role Access Right")</h6>
+            </div>
+            <div class="ms-panel-body">
+                <form class="needs-validation" novalidate asp-action="providroleaccessright" method="post">
+                    <input type="hidden" asp-for="RoleId" />
+                    <div class="col-xl-12 col-md-12">
+                        <div class="form-row">
+                            <div class="col-md-12">
+                                <label>@localizer.GetLocalizedHtmlString("Role")</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" readonly asp-for="RoleName">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <label>@localizer.GetLocalizedHtmlString("Menu")</label> <span class="required-star">*</span>
+                                <div class="input-group">
+                                    <select asp-for="MenuItemId" class="form-control select2" required asp-items="@ViewBag.Menus">
+                                        <option value=""></option>
+                                    </select>
+                                    <div class="valid-feedback">
+                                        @localizer.GetLocalizedHtmlString("Looks good!")
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        @localizer.GetLocalizedHtmlString("Menu item is required.")
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <label>@localizer.GetLocalizedHtmlString("Access Right")</label> <span class="required-star">*</span>
+                                <div class="input-group">
+                                    <select asp-for="AccessRight" class="form-control select2" multiple required asp-items="@ViewBag.AccessRight">
+                                    </select>
+                                    <div class="valid-feedback">
+                                        @localizer.GetLocalizedHtmlString("Looks good!")
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        @localizer.GetLocalizedHtmlString("Access right is required.")
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 text-right">
+                        <button class="btn btn-primary" type="submit">@localizer.GetLocalizedHtmlString("Add")</button>
+                        <a asp-action="index" class="btn btn-primary">@localizer.GetLocalizedHtmlString("Back to List")</a>
+                    </div>
+                </form>
+                <br />
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table id="list-access-right" class="table w-100 thead-primary">
+                            <thead>
+                                <tr>
+                                    <th>@localizer.GetLocalizedHtmlString("No")</th>
+                                    <th>@localizer.GetLocalizedHtmlString("Menu Item")</th>
+                                    <th>@localizer.GetLocalizedHtmlString("Access Right")</th>
+                                    <th class="text-center">@localizer.GetLocalizedHtmlString("Edit / Delete")</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{ var index = 1;}
+                                @foreach (var item in ViewData["ListAccessRight"] as IEnumerable<RoleClaimViewModel>)
+                                {
+                                    <tr>
+                                        <td>@index</td>
+                                        <td>@item.ClaimType</td>
+                                        <td>@item.ClaimValue</td>
+                                        <td class="text-center">
+                                            <div class="action-modify">
+                                                <a title="@localizer.GetLocalizedHtmlString("Edit")" asp-action="editroleclaim" asp-route-key="@item.Encryted"><i class="fas fa-pencil-alt text-secondary"></i></a>
+                                            </div>
+                                            <div class="action-modify">
+                                                <a title="@localizer.GetLocalizedHtmlString("Delete")" asp-action="deleteroleclaim" asp-route-key="@item.Encryted"><i class="fa fa-trash"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    index++;
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('.select2').select2();
+        $('#list-access-right').DataTable({
+            pageLength: 10
+        });
+    });
+</script>
