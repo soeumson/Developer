@@ -8853,11 +8853,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\E-commerce\\Backup\\e-commerce-backend\\EcommerceBackEnd\\EcommercApi\\EcommercApi.csproj",
+      "projectUniqueName": "D:\\E-commerce\\MY PROJECT\\Developer\\e-commerce-backend\\EcommerceBackEnd\\EcommercApi\\EcommercApi.csproj",
       "projectName": "EcommercApi",
-      "projectPath": "D:\\E-commerce\\Backup\\e-commerce-backend\\EcommerceBackEnd\\EcommercApi\\EcommercApi.csproj",
+      "projectPath": "D:\\E-commerce\\MY PROJECT\\Developer\\e-commerce-backend\\EcommerceBackEnd\\EcommercApi\\EcommercApi.csproj",
       "packagesPath": "C:\\Users\\KR\\.nuget\\packages\\",
-      "outputPath": "D:\\E-commerce\\Backup\\e-commerce-backend\\EcommerceBackEnd\\EcommercApi\\obj\\",
+      "outputPath": "D:\\E-commerce\\MY PROJECT\\Developer\\e-commerce-backend\\EcommerceBackEnd\\EcommercApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -8877,8 +8877,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "D:\\E-commerce\\Backup\\e-commerce-backend\\EcommerceBackEnd\\Ecommerce.Core\\Ecommerce.Core.csproj": {
-              "projectPath": "D:\\E-commerce\\Backup\\e-commerce-backend\\EcommerceBackEnd\\Ecommerce.Core\\Ecommerce.Core.csproj"
+            "D:\\E-commerce\\MY PROJECT\\Developer\\e-commerce-backend\\EcommerceBackEnd\\Ecommerce.Core\\Ecommerce.Core.csproj": {
+              "projectPath": "D:\\E-commerce\\MY PROJECT\\Developer\\e-commerce-backend\\EcommerceBackEnd\\Ecommerce.Core\\Ecommerce.Core.csproj"
             }
           }
         }

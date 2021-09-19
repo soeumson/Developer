@@ -6904,11 +6904,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\E-commerce\\Backup\\e-commerce-backend\\EcommerceBackEnd\\EcommerceFrontEnd\\EcommerceFrontEnd.csproj",
+      "projectUniqueName": "D:\\E-commerce\\MY PROJECT\\Developer\\e-commerce-backend\\EcommerceBackEnd\\EcommerceFrontEnd\\EcommerceFrontEnd.csproj",
       "projectName": "EcommerceFrontEnd",
-      "projectPath": "D:\\E-commerce\\Backup\\e-commerce-backend\\EcommerceBackEnd\\EcommerceFrontEnd\\EcommerceFrontEnd.csproj",
+      "projectPath": "D:\\E-commerce\\MY PROJECT\\Developer\\e-commerce-backend\\EcommerceBackEnd\\EcommerceFrontEnd\\EcommerceFrontEnd.csproj",
       "packagesPath": "C:\\Users\\KR\\.nuget\\packages\\",
-      "outputPath": "D:\\E-commerce\\Backup\\e-commerce-backend\\EcommerceBackEnd\\EcommerceFrontEnd\\obj\\",
+      "outputPath": "D:\\E-commerce\\MY PROJECT\\Developer\\e-commerce-backend\\EcommerceBackEnd\\EcommerceFrontEnd\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

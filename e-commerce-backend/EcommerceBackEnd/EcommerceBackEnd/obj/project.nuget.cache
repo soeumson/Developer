@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "m4jw2z69yjAASoP/2ivX4e7BpJ0IcNIbcRzVrlYCfAaqzrQbBej4kb/pfGXNyKOMowjt/CcYhvhTq6U/i2vH1Q==",
+  "dgSpecHash": "4zs9xn+8894C4ndhwpzYPOXf2fuMLlSuTcJ+kwZDdlW28V04q+1aW/R6WYk/lkYlWPin1BZ7XZtpqcWiHJCO8Q==",
   "success": true,
-  "projectFilePath": "D:\\E-commerce\\Backup\\e-commerce-backend\\EcommerceBackEnd\\EcommerceBackEnd\\EcommerceBackEnd.csproj",
+  "projectFilePath": "D:\\E-commerce\\MY PROJECT\\Developer\\e-commerce-backend\\EcommerceBackEnd\\EcommerceBackEnd\\EcommerceBackEnd.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\KR\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\KR\\.nuget\\packages\\mailkit\\2.11.1\\mailkit.2.11.1.nupkg.sha512",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3gE13VxlCVZQR/o9aztmMMtK9rKj58mdURWo33sHyXuDVfmMyoOgNsAYIAv3wS1edsMfY2GTPggJyyuH0mWltA==",
+  "dgSpecHash": "aNxCwQ9aH2NaXSDhHYvPkM1MNnMcPyCiDCa9DuQ6SqaSWEKXmKMwjMtjSIkHixKMWePz99QBf8QD773ESxeZCg==",
   "success": true,
-  "projectFilePath": "D:\\E-commerce\\Backup\\e-commerce-backend\\EcommerceBackEnd\\EcommercApi\\EcommercApi.csproj",
+  "projectFilePath": "D:\\E-commerce\\MY PROJECT\\Developer\\e-commerce-backend\\EcommerceBackEnd\\EcommercApi\\EcommercApi.csproj",
   "expectedPackageFiles": [
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",

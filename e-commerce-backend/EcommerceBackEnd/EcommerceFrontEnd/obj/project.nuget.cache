@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YupN9dEos7/N8qAc35TmQhGNw+/NQ1a8Gbdl+OGI0pzJLm8QwxRuFjquP3mWXyVXSLZteNVNdIuSAvCAJTYBeQ==",
+  "dgSpecHash": "4UkMCvmT7QOYkkDVZLvz+V1lkHYnJ9ZFLdOX8xx1KKgsGDnbMx5a/32s3+NXwdlKl1rNFU2Ov4ecjoUaDWcvMw==",
   "success": true,
-  "projectFilePath": "D:\\E-commerce\\Backup\\e-commerce-backend\\EcommerceBackEnd\\EcommerceFrontEnd\\EcommerceFrontEnd.csproj",
+  "projectFilePath": "D:\\E-commerce\\MY PROJECT\\Developer\\e-commerce-backend\\EcommerceBackEnd\\EcommerceFrontEnd\\EcommerceFrontEnd.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\KR\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.7\\microsoft.aspnet.webapi.client.5.2.7.nupkg.sha512",
     "C:\\Users\\KR\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.extensions\\5.0.8\\microsoft.aspnetcore.mvc.razor.extensions.5.0.8.nupkg.sha512",

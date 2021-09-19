@@ -15,12 +15,6 @@ namespace EcommercApi.Models.Products
         public List<Product> ProductBestseller { get; set; }
         public List<Product> FeatureProduct { get; set; }
         public List<Product> SpecialProduct { get; set; }
-        public List<ProductCategory> ProductCategory { get; set; }
-    }
-    public class ProductCategory
-    {
-       public string Category { get; set; }
-       public List<Product> Products { get; set; }
     }
     public class SingleProduct
     {

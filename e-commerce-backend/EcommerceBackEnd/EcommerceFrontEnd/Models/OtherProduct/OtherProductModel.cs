@@ -26,15 +26,6 @@ namespace EcommerceFrontEnd.Models.OtherProductModel
 
     public class SpecialProduct: Product { }
 
-    public class ProductCategory
-    {
-        [JsonProperty("Category")]
-        public string Category { get; set; }
-
-        [JsonProperty("Products")]
-        public List<Product> Products { get; set; }
-    }
-
     public class Data
     {
         [JsonProperty("ProductArrival")]
@@ -48,8 +39,5 @@ namespace EcommerceFrontEnd.Models.OtherProductModel
 
         [JsonProperty("SpecialProduct")]
         public List<SpecialProduct> SpecialProduct { get; set; }
-
-        [JsonProperty("ProductCategory")]
-        public List<ProductCategory> ProductCategory { get; set; }
     }
 }

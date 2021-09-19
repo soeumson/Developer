@@ -197,14 +197,12 @@ namespace EcommercApi.Repositories
             var product_bestseller = GetProducts().Take(10).OrderByDescending(x => x.TotalOrder).ToList();
             var producct_feature = GetProducts().Take(10).OrderByDescending(x => x.Price).ToList();
             var product_sepcial = GetProducts().Take(3).OrderByDescending(x => x.Favourite).ToList();
-            var product_category = GetProducts().GroupBy(p => p.CategoryID,(key, g) => new ProductCategory { Category = key, Products = g.ToList()}).ToList();
             var otherProduct = new OtherProducts
             {
                 ProductArrival=product_arrival,
                 ProductBestseller=product_bestseller,
                 FeatureProduct=producct_feature,
-                SpecialProduct=product_sepcial,
-                ProductCategory=product_category
+                SpecialProduct=product_sepcial
             };
             return otherProduct;
         }
